@@ -1,0 +1,524 @@
+/* predictions.css - Styles for the Predictions Page */
+
+/* --- 1. Global Variables & Base Styles --- */
+
+:root {
+    --color-bg-primary: #121212;
+    --color-bg-secondary: #1f1f1f;
+    --color-bg-card: #2a2a2a;
+    --color-text-light: #ffffff;
+    --color-text-muted: #a0a0a0;
+    --color-accent-green: #00d463;
+    --color-accent-gold: #ffc400; /* For rank 1 */
+    --color-accent-silver: #a0a0a0; /* For rank 2 */
+    --color-accent-bronze: #cd7f32; /* For rank 3 */
+    --color-border: #333333;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-light);
+}
+
+.predictions-page {
+    min-height: 100vh;
+    background-color: var(--color-bg-primary);
+    padding: 0;
+}
+
+.page-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+}
+
+/* --- 2. Header and Layout --- */
+
+.header-section {
+    margin-bottom: 32px;
+    padding-top: 16px;
+}
+
+.header-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.icon-target {
+    font-size: 32px;
+    color: var(--color-accent-green);
+}
+
+.main-title {
+    font-size: 36px;
+    color: var(--color-text-light);
+}
+
+.subtitle {
+    font-size: 16px;
+    color: var(--color-text-muted);
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+@media (min-width: 1024px) {
+    .main-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.main-content-column, .sidebar-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* --- 3. Component Base Styles (Card, Button, Input, Badge) --- */
+
+.simple-card {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+}
+
+.simple-button {
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s;
+    background-color: var(--color-accent-green);
+    color: var(--color-bg-secondary);
+    font-weight: 600;
+}
+
+.simple-button:hover {
+    background-color: #00a852;
+}
+
+.simple-input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-card);
+    color: var(--color-text-light);
+    font-size: 16px;
+    text-align: center;
+}
+
+.simple-badge {
+    padding: 4px 10px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 500;
+    background-color: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+}
+
+/* --- 4. Tabs Styling --- */
+
+.tabs-list-wrapper {
+    display: flex;
+    /* This border is where the TabsList styling was */
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 6px;
+    margin-bottom: 24px;
+}
+
+.tabs-trigger {
+    flex: 1;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: transparent;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.tabs-trigger.active {
+    background-color: var(--color-accent-green);
+    color: var(--color-bg-secondary);
+    box-shadow: 0 2px 5px rgba(0, 212, 99, 0.3);
+}
+
+/* --- 5. Match Prediction Card --- */
+
+.match-card {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+}
+
+.match-header-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-md);
+    font-size: 14px;
+    color: var(--color-text-muted);
+}
+
+.score-prediction-area {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--spacing-md);
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.team-display {
+    text-align: center;
+}
+
+.team-logo {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 8px;
+    border-radius: 50%;
+    background-color: var(--color-bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.team-name {
+    color: var(--color-text-light);
+    font-size: 14px;
+}
+
+.score-inputs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.input-score {
+    width: 60px;
+    height: 48px;
+    font-size: 20px;
+}
+
+.score-divider {
+    color: var(--color-text-muted);
+    font-size: 20px;
+}
+
+.submit-button {
+    width: 100%;
+}
+
+/* --- 6. Empty State --- */
+
+.empty-state-card {
+    text-align: center;
+    padding: 40px;
+}
+
+.icon-trophy {
+    font-size: 48px;
+    color: var(--color-border);
+    margin-bottom: 16px;
+    display: block;
+}
+
+.empty-state-title {
+    font-size: 20px;
+    color: var(--color-text-light);
+    margin-bottom: 8px;
+}
+
+.empty-state-text {
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+}
+
+
+/* --- 7. Community Poll --- */
+
+.poll-card {
+    /* Uses .simple-card */
+}
+
+.poll-title {
+    font-size: 20px;
+    color: var(--color-text-light);
+    margin-bottom: 16px;
+}
+
+.poll-question {
+    color: var(--color-text-muted);
+    margin-bottom: 20px;
+}
+
+.poll-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.poll-option {
+    width: 100%;
+    text-align: left;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-card);
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.poll-option-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.poll-option-text {
+    color: var(--color-text-light);
+}
+
+.poll-percentage {
+    color: var(--color-accent-green);
+    font-weight: 600;
+}
+
+/* Voted States */
+.poll-option:not([disabled]):hover {
+    border-color: rgba(0, 212, 99, 0.5);
+    background-color: var(--color-bg-secondary);
+}
+
+.poll-option.voted-selected {
+    border-color: var(--color-accent-green);
+    background-color: rgba(0, 212, 99, 0.1);
+}
+
+.poll-option.voted-locked {
+    cursor: default;
+    background-color: var(--color-bg-secondary);
+}
+
+.poll-progress-bar-bg {
+    height: 8px;
+    background-color: var(--color-border);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.poll-progress-fill {
+    height: 100%;
+    background-color: var(--color-accent-green);
+    border-radius: 4px;
+    transition: width 0.5s;
+}
+
+.poll-total-votes {
+    font-size: 14px;
+    color: var(--color-text-muted);
+    margin-top: 16px;
+    text-align: center;
+}
+
+
+/* --- 8. Sidebar (Stats & Leaderboard) --- */
+
+.stats-card {
+    /* Uses .simple-card */
+    background: linear-gradient(135deg, rgba(0, 212, 99, 0.1) 0%, rgba(0, 212, 99, 0.05) 100%);
+    border: 1px solid rgba(0, 212, 99, 0.3);
+}
+
+.stats-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.stat-icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: rgba(0, 212, 99, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-award {
+    font-size: 24px;
+    color: #00d463;
+}
+
+.stat-main-text {
+    color: var(--color-text-light);
+    font-weight: 600;
+}
+
+.stat-sub-text {
+    font-size: 14px;
+    color: var(--color-text-muted);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.stat-item {
+    background-color: rgba(20, 20, 20, 0.5);
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.stat-value-large {
+    font-size: 24px;
+    color: var(--color-accent-green);
+    margin-bottom: 4px;
+    font-weight: 700;
+}
+
+.stat-label-small {
+    font-size: 12px;
+    color: var(--color-text-muted);
+}
+
+/* Leaderboard */
+.leaderboard-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.icon-trending {
+    font-size: 20px;
+    color: var(--color-accent-green);
+}
+
+.leaderboard-title {
+    font-size: 18px;
+    color: var(--color-text-light);
+}
+
+.leaderboard-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.leaderboard-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background-color: rgba(30, 30, 30, 0.8);
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.leaderboard-item:hover {
+    background-color: var(--color-bg-secondary);
+}
+
+.rank-badge {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.rank-1 {
+    background-color: rgba(255, 196, 0, 0.2);
+    color: var(--color-accent-gold);
+}
+.rank-2 {
+    background-color: rgba(160, 160, 160, 0.2);
+    color: var(--color-accent-silver);
+}
+.rank-3 {
+    background-color: rgba(205, 127, 50, 0.2);
+    color: var(--color-accent-bronze);
+}
+.rank-badge:not(.rank-1):not(.rank-2):not(.rank-3) {
+    background-color: var(--color-border);
+    color: var(--color-text-muted);
+}
+
+.icon-medal {
+    font-size: 16px;
+}
+
+.user-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.user-name {
+    color: var(--color-text-light);
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-accuracy {
+    font-size: 12px;
+    color: var(--color-text-muted);
+}
+
+.user-points {
+    color: var(--color-accent-green);
+    font-weight: 600;
+}
+
+/* Scoring Info */
+.scoring-title {
+    color: var(--color-text-light);
+    margin-bottom: 12px;
+}
+
+.scoring-rules {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--color-text-muted);
+}
+
+.scoring-rule {
+    display: flex;
+    justify-content: space-between;
+}
+
+.rule-points {
+    color: var(--color-accent-green);
+    font-weight: 600;
+}

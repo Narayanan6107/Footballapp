@@ -1,0 +1,434 @@
+/* Custom CSS Variables */
+:root {
+    --bg-dark: #120A1C; 
+    --panel-bg: rgba(255, 255, 255, 0.05);
+    --panel-border: rgba(255, 255, 255, 0.1);
+    --highlight-color: #4F46E5; /* Active tab/gradient */
+    --barca-color: #A50044;
+    --madrid-color: #005694;
+    --text-light: #fff;
+    --text-subtle: #bbb;
+    --rating-high: #38A169;
+    --rating-mid: #F6E05E;
+    --motm-gold: #FFD700;
+}
+
+/* Global Styles */
+body {
+    margin: 0;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.content-area {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.panel {
+    background-color: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    /* Frosted glass effect */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.back-link {
+    color: var(--text-subtle);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+}
+
+/* ====================================
+   GLOBAL HEADER (NAVBAR - MATCHING IMAGE)
+   ==================================== */
+.global-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #000;
+    border-bottom: 1px solid #333;
+    gap: 30px;
+}
+
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #6A5ACD, #4F46E5);
+}
+
+.logo-text {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--text-light);
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    font-size: 0.95em;
+    color: var(--text-subtle);
+    flex-grow: 1;
+}
+
+.nav-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: color 0.2s;
+    border-radius: 8px;
+    position: relative;
+}
+
+.nav-item.active {
+    color: var(--text-light);
+    background-color: #333;
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.4);
+    border: 1px solid #555;
+    /* Replicating the purple gradient highlight */
+    background: linear-gradient(to right, rgba(79, 70, 229, 0.2), rgba(79, 70, 229, 0.1));
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 5px 15px;
+    width: 250px;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    color: white;
+    padding: 5px 0;
+    margin-left: 10px;
+    width: 100%;
+    outline: none;
+}
+
+.search-icon {
+    color: var(--text-subtle);
+    font-size: 0.9em;
+}
+
+.profile-icon {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: var(--highlight-color);
+}
+
+/* ====================================
+   SCOREBOARD CARD
+   ==================================== */
+.scoreboard-card {
+    background: var(--panel-bg);
+    border: 1px solid var(--panel-border);
+    border-radius: 15px;
+    padding: 25px 30px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.league-live-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+    color: var(--text-subtle);
+    margin-bottom: 20px;
+}
+
+.live-tag {
+    color: #E30000;
+    font-weight: bold;
+}
+
+.score-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+}
+
+.team-score-left, .team-score-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+}
+
+.team-indicator-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.left-circle {
+    background-color: var(--madrid-color);
+    box-shadow: 0 0 10px var(--madrid-color);
+}
+
+.right-circle {
+    background-color: var(--barca-color);
+    box-shadow: 0 0 10px var(--barca-color);
+}
+
+.score-display {
+    font-size: 5em;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.team-name {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+/* Time Progress Bar */
+.time-progress-bar {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+    font-size: 0.8em;
+}
+
+.progress-track {
+    flex-grow: 1;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--madrid-color), var(--madrid-color));
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+/* ====================================
+   TABS NAVIGATION
+   ==================================== */
+.tabs-nav-container {
+    margin-bottom: 20px;
+}
+
+.tabs-nav {
+    display: flex;
+    gap: 10px;
+    padding: 5px 0;
+}
+
+.tab-button {
+    flex: 0 0 auto;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: var(--text-subtle);
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.tab-button.active {
+    color: var(--text-light);
+    background: linear-gradient(to right, #4F46E5, #6A5ACD); /* Active gradient */
+    box-shadow: 0 2px 10px rgba(79, 70, 229, 0.5);
+}
+
+.tab-button:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-light);
+}
+
+
+/* ====================================
+   TAB CONTENT
+   ==================================== */
+
+/* --- Lineups Tab (Individual Player Ratings) --- */
+.lineups-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stats-header-motm {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.motm-card {
+    background: linear-gradient(45deg, rgba(255, 215, 0, 0.3), rgba(255, 215, 0, 0.1));
+    border: 1px solid var(--motm-gold);
+    border-radius: 10px;
+    padding: 15px 25px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.motm-icon {
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.motm-label {
+    font-size: 0.8em;
+    color: var(--text-subtle);
+}
+
+.motm-player-name {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--motm-gold);
+}
+
+.lineups-table-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+@media (max-width: 600px) {
+    .lineups-table-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.lineup-table h4 {
+    border-bottom: 2px solid var(--panel-border);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.player-row {
+    display: grid;
+    grid-template-columns: 30px 2fr 1fr 60px 40px; /* # | Name | Pos | Rating | MOTM */
+    padding: 8px 0;
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.05);
+    align-items: center;
+    font-size: 0.95em;
+}
+
+.player-row.header-row {
+    font-weight: bold;
+    color: var(--highlight-color);
+    border-bottom: 2px solid var(--panel-border);
+}
+
+.player-number {
+    font-weight: 700;
+    color: var(--text-subtle);
+}
+
+.player-name {
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-position {
+    font-size: 0.9em;
+    color: var(--text-subtle);
+}
+
+.player-rating {
+    font-weight: 700;
+    text-align: right;
+    color: var(--text-light);
+}
+
+.rating-high {
+    color: var(--rating-high);
+}
+.rating-mid {
+    color: var(--rating-mid);
+}
+
+.motm-highlight {
+    background-color: rgba(255, 215, 0, 0.1);
+    border-radius: 4px;
+    margin: -4px 0;
+    padding: 4px 0;
+}
+
+.motm-badge {
+    background-color: var(--motm-gold);
+    color: var(--bg-dark);
+    font-weight: bold;
+    font-size: 0.7em;
+    padding: 2px 4px;
+    border-radius: 3px;
+    text-align: center;
+    justify-self: center;
+}
+
+/* --- Stats Tab (Team Stats) --- */
+.stats-content h3 {
+    margin-top: 0;
+}
+
+.stat-item-bar {
+    margin-bottom: 20px;
+}
+
+.stat-label-row {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.stat-bar-container {
+    height: 8px;
+    border-radius: 4px;
+    background-color: var(--awayTeam-color); 
+    display: flex;
+    overflow: hidden;
+}
+
+.progress-track-bar {
+    flex-grow: 1;
+    background-color: var(--awayTeam-color); 
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row-reverse; /* Allows the primary stat bar (Home) to fill from left */
+}
+
+.stat-bar {
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+.stat-bar-home {
+    /* Since Madrid is the home team, use their color */
+    background-color: var(--madrid-color); 
+}
