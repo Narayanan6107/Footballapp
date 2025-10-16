@@ -1,0 +1,87 @@
+// Match data with API Sports image URLs
+export const matches = [
+    {
+        id: 1,
+        league: "Champions League",
+        home: "Real Madrid",
+        away: "Manchester City",
+        homeTeamImage: "https://media.api-sports.io/football/teams/541.png",
+        awayTeamImage: "https://media.api-sports.io/football/teams/50.png",
+        leagueImage: "https://media.api-sports.io/football/leagues/2.png",
+        score: "2 - 1",
+        status: "72'",
+        time: 72,
+        isLive: true,
+        homePossession: 48,
+        awayPossession: 52
+    },
+    {
+        id: 2,
+        league: "La Liga",
+        home: "Real Madrid",
+        away: "Barcelona",
+        homeTeamImage: "https://media.api-sports.io/football/teams/541.png",
+        awayTeamImage: "https://media.api-sports.io/football/teams/529.png",
+        leagueImage: "https://media.api-sports.io/football/leagues/140.png",
+        score: "3 - 2",
+        status: "FT",
+        time: 90,
+        isLive: false
+    },
+    {
+        id: 3,
+        league: "La Liga",
+        home: "Atletico Madrid",
+        away: "Sevilla",
+        homeTeamImage: "https://media.api-sports.io/football/teams/530.png",
+        awayTeamImage: "https://media.api-sports.io/football/teams/536.png",
+        leagueImage: "https://media.api-sports.io/football/leagues/140.png",
+        score: "1 - 1",
+        status: "HT",
+        time: 45,
+        isLive: true,
+        homePossession: 55,
+        awayPossession: 45
+    },
+    {
+        id: 4,
+        league: "Champions League",
+        home: "PSG",
+        away: "Real Madrid",
+        homeTeamImage: "https://media.api-sports.io/football/teams/85.png",
+        awayTeamImage: "https://media.api-sports.io/football/teams/541.png",
+        leagueImage: "https://media.api-sports.io/football/leagues/2.png",
+        score: "VS",
+        status: "20:00",
+        time: 0,
+        isLive: false,
+        isUpcoming: true
+    },
+    {
+        id: 5,
+        league: "La Liga",
+        home: "Real Sociedad",
+        away: "Real Madrid",
+        homeTeamImage: "https://media.api-sports.io/football/teams/548.png",
+        awayTeamImage: "https://media.api-sports.io/football/teams/541.png",
+        leagueImage: "https://media.api-sports.io/football/leagues/140.png",
+        score: "1 - 2",
+        status: "FT",
+        time: 90,
+        isLive: false
+    },
+    {
+        id: 6,
+        league: "Copa del Rey",
+        home: "Real Madrid",
+        away: "Athletic Club",
+        homeTeamImage: "https://media.api-sports.io/football/teams/541.png",
+        awayTeamImage: "https://media.api-sports.io/football/teams/531.png",
+        leagueImage: "https://media.api-sports.io/football/leagues/143.png",
+        score: "VS",
+        status: "Next Week",
+        time: 0,
+        isLive: false,
+        isUpcoming: true
+    }
+];

@@ -1,0 +1,515 @@
+/* lineup.css - Styles for the Lineup Builder */
+
+/* --- 1. Global Variables & Base Styles --- */
+
+:root {
+    --color-bg-primary: #121212;
+    --color-bg-secondary: #1f1f1f;
+    --color-bg-tertiary: #2a2a2a;
+    --color-text-light: #ffffff;
+    --color-text-muted: #a0a0a0;
+    --color-accent-green: #00d463;
+    --color-accent-red: #ff3b30;
+    --color-border: #444;
+    --pitch-green: #387844; /* Darker green for pitch base */
+    --pitch-line: rgba(255, 255, 255, 0.2);
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-light);
+}
+
+.lineup-builder-page {
+    min-height: 100vh;
+    background-color: var(--color-bg-primary);
+}
+
+.lineup-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 32px 16px;
+}
+
+/* --- 2. Typography and Header --- */
+
+.header-section {
+    margin-bottom: 32px;
+}
+
+.main-title {
+    font-size: 36px;
+    color: var(--color-text-light);
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: var(--color-text-muted);
+}
+
+/* --- 3. Grid Layout --- */
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+@media (min-width: 1024px) {
+    .main-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.pitch-area-container, .bench-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* --- 4. Controls and Buttons --- */
+
+.controls-panel {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+
+.control-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.control-label {
+    font-size: 12px;
+    color: var(--color-text-muted);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.control-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+/* Simple Button Styling */
+.simple-button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.simple-button-primary {
+    background-color: var(--color-accent-green);
+    color: var(--color-bg-primary);
+    border: 1px solid var(--color-accent-green);
+}
+
+.simple-button-primary:hover {
+    background-color: #00a852;
+}
+
+.simple-button-outline {
+    background-color: transparent;
+    color: var(--color-text-light);
+    border: 1px solid var(--color-border);
+}
+
+.simple-button-outline:hover {
+    background-color: var(--color-bg-tertiary);
+    border-color: var(--color-text-muted);
+}
+
+.icon-trash, .icon-save, .icon-share {
+    margin-right: 8px;
+    font-size: 14px;
+}
+
+/* Simple Select Styling */
+.simple-select {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-light);
+    font-size: 14px;
+    appearance: none; /* Hide default dropdown arrow */
+    cursor: pointer;
+}
+
+/* --- 5. Football Pitch --- */
+
+.football-pitch-wrapper {
+    background-color: var(--pitch-green);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.football-pitch {
+    position: relative;
+    width: 100%;
+    /* Aspect ratio for a football pitch (approx 2:3) */
+    padding-top: 150%; 
+    background-image: linear-gradient(
+        0deg,
+        transparent 49.5%,
+        rgba(255, 255, 255, 0.05) 49.5%,
+        rgba(255, 255, 255, 0.05) 50.5%,
+        transparent 50.5%
+    );
+}
+
+/* Pitch Markings */
+.pitch-markings {
+    position: absolute;
+    inset: 0;
+}
+
+.pitch-markings > div {
+    position: absolute;
+    border-color: var(--pitch-line);
+}
+
+.center-circle {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    border: 2px solid var(--pitch-line);
+    border-radius: 50%;
+}
+
+.center-dot {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--pitch-line);
+}
+
+.penalty-box {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 16.66%; /* 1/6th of the pitch height */
+    border: 2px solid var(--pitch-line);
+}
+
+.penalty-box.top {
+    top: 0;
+    border-top: none;
+}
+
+.penalty-box.bottom {
+    bottom: 0;
+    border-bottom: none;
+}
+
+.goal {
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25%;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.goal.top { top: 0; }
+.goal.bottom { bottom: 0; }
+
+/* --- 6. Player Slots on Pitch --- */
+
+.player-slot-pitch-container {
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+/* Player Slot (Filled) */
+.player-slot-filled {
+    position: relative;
+    /* group */
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.player-slot-card {
+    background-color: var(--color-accent-green);
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 70px; /* Fixed width for better control */
+}
+
+.player-slot-number {
+    font-size: 20px;
+    color: var(--color-text-light);
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+.player-slot-name {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.9);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-remove-button {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 24px;
+    height: 24px;
+    background-color: var(--color-accent-red);
+    border-radius: 50%;
+    border: none;
+    opacity: 0;
+    /* transition: opacity 0.2s; (controlled by JS hover class) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.player-slot-filled:hover .player-remove-button {
+    opacity: 1;
+}
+
+.icon-trash {
+    font-size: 12px;
+    color: white;
+}
+
+/* Player Slot (Empty) */
+.player-slot-empty {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px dashed var(--color-border);
+    background-color: rgba(20, 20, 20, 0.5);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-slot-active-drop {
+    border-color: var(--color-accent-green);
+    background-color: rgba(0, 212, 99, 0.2);
+    transform: scale(1.1);
+}
+
+.add-icon {
+    color: var(--color-text-muted);
+    font-size: 16px;
+}
+
+/* --- 7. Stats Panel --- */
+
+.stats-panel {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--color-text-muted);
+}
+
+.stat-value {
+    font-size: 24px;
+    color: var(--color-text-light);
+}
+
+/* Simple Badge Styling */
+.simple-badge {
+    padding: 4px 10px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.badge-complete {
+    color: #4CAF50; /* Light green */
+    border: 1px solid #4CAF50;
+}
+
+.badge-incomplete {
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+}
+
+/* --- 8. Player Bench & Draggable Player --- */
+
+.bench-panel {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.bench-title {
+    font-size: 18px;
+    color: var(--color-text-light);
+    margin-bottom: 16px;
+}
+
+.player-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+/* Style for the scrollbar track */
+.player-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.player-list::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 3px;
+}
+
+/* Draggable Player Card */
+.draggable-player {
+    cursor: grab;
+    transition: opacity 0.2s;
+}
+
+.draggable-player.dragging {
+    opacity: 0.5;
+}
+
+.draggable-player-content {
+    background-color: var(--color-bg-tertiary);
+    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: background-color 0.2s;
+}
+
+.draggable-player-content:hover {
+    background-color: #383838;
+}
+
+.player-number-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(0, 212, 99, 0.2);
+    color: var(--color-accent-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.player-name {
+    color: var(--color-text-light);
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.player-position {
+    color: var(--color-text-muted);
+    font-size: 12px;
+}
+
+.empty-bench-message {
+    text-align: center;
+    padding: 32px 0;
+    color: var(--color-text-muted);
+}
+
+/* --- 9. Pro Tip Box --- */
+
+.pro-tip-box {
+    background: linear-gradient(135deg, rgba(0, 212, 99, 0.1) 0%, rgba(0, 212, 99, 0.05) 100%);
+    border: 1px solid rgba(0, 212, 99, 0.3);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.pro-tip-title {
+    color: var(--color-accent-green);
+    margin-bottom: 8px;
+}
+
+.pro-tip-text {
+    font-size: 14px;
+    color: var(--color-text-muted);
+}
+/* --- Updates for Click-Based System in lineup.css --- */
+
+/* 1. Draggable Player Card (Now PlayerListCard) */
+
+.draggable-player {
+    cursor: pointer; /* Change cursor from 'grab' to 'pointer' */
+    transition: all 0.2s;
+    border: 2px solid transparent; /* Base for selection outline */
+    border-radius: 10px;
+}
+
+.draggable-player.is-selected {
+    border-color: var(--color-accent-green); /* Highlight the selected player */
+    background-color: #2a2a2a;
+}
+
+.draggable-player-content:hover {
+    background-color: #383838;
+}
+
+/* 2. Player Slot on Pitch (Targets) */
+
+.player-slot-empty {
+    /* ... (Existing styles) ... */
+    cursor: pointer; 
+}
+
+.player-slot-active-target {
+    border-color: var(--color-accent-green);
+    background-color: rgba(0, 212, 99, 0.2);
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.player-slot-filled {
+    /* ... (Existing styles) ... */
+    cursor: pointer;
+}
+
+.player-slot-filled.is-target .player-slot-card {
+    border: 2px solid var(--color-accent-green); /* Highlight slot ready for substitution */
+    box-shadow: 0 0 10px var(--color-accent-green);
+}
