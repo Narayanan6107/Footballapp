@@ -3,19 +3,25 @@ import '../styles/lineup.css'; // Import the dedicated CSS file
 
 // --- MOCK DATA (Required for component to run) ---
 const matchPlayers = [
-  { id: 'p1', name: 'Alisson Becker', number: 1, position: 'GK' },
-  { id: 'p2', name: 'Virgil van Dijk', number: 4, position: 'CB' },
-  { id: 'p3', name: 'Trent Alexander-Arnold', number: 66, position: 'RB' },
-  { id: 'p4', name: 'Andrew Robertson', number: 26, position: 'LB' },
-  { id: 'p5', name: 'Fabinho', number: 3, position: 'CDM' },
-  { id: 'p6', name: 'Thiago Alcântara', number: 6, position: 'CM' },
-  { id: 'p7', name: 'Jordan Henderson', number: 14, position: 'CM' },
-  { id: 'p8', name: 'Mohamed Salah', number: 11, position: 'RW' },
-  { id: 'p9', name: 'Roberto Firmino', number: 9, position: 'CF' },
-  { id: 'p10', name: 'Sadio Mané', number: 10, position: 'LW' },
-  { id: 'p11', name: 'Diogo Jota', number: 20, position: 'ST' },
-  { id: 'p12', name: 'Naby Keïta', number: 8, position: 'SUB' },
-  { id: 'p13', name: 'Joe Gomez', number: 12, position: 'SUB' },
+    // --- Starting XI ---
+    { id: 'p1', name: 'Thibaut Courtois', number: 1, position: 'GK' },
+    { id: 'p2', name: 'Dani Carvajal', number: 2, position: 'RB' },
+    { id: 'p3', name: 'Éder Militão', number: 3, position: 'CB' },
+    { id: 'p4', name: 'David Alaba', number: 4, position: 'CB' },
+    { id: 'p5', name: 'Ferland Mendy', number: 23, position: 'LB' },
+    { id: 'p6', name: 'Toni Kroos', number: 8, position: 'CM' },
+    { id: 'p7', name: 'Luka Modrić', number: 10, position: 'CM' },
+    { id: 'p8', name: 'Aurélien Tchouaméni', number: 18, position: 'CDM' },
+    { id: 'p9', name: 'Rodrygo', number: 11, position: 'RW' },
+    { id: 'p10', name: 'Vinícius Júnior', number: 7, position: 'LW' },
+    { id: 'p11', name: 'Jude Bellingham', number: 5, position: 'CAM' },
+
+    // --- Bench/Substitutes ---
+    { id: 'p12', name: 'Kepa Arrizabalaga', number: 25, position: 'SUB' },
+    { id: 'p13', name: 'Nacho Fernández', number: 6, position: 'SUB' },
+    { id: 'p14', name: 'Federico Valverde', number: 15, position: 'SUB' },
+    { id: 'p15', name: 'Eduardo Camavinga', number: 12, position: 'SUB' },
+    { id: 'p16', name: 'Joselu', number: 14, position: 'SUB' },
 ];
 
 const formations = [

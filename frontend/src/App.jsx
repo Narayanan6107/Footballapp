@@ -8,6 +8,7 @@ import Details from './pages/Details'
 import Match from './pages/Match'
 import { LineupBuilder} from './pages/Lineup'
 import { PredictionsPage } from './pages/Prediction'
+import { MilkProvider } from './pages/MilkProvider'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -19,7 +20,7 @@ function App() {
         <Route path="/chat" element={<Chat/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/details" element={<Details/>}/>
-        <Route path="/league" element={<Match/>}/>
+        <Route path="/match" element={<Match/>}/>
         <Route path='/lineup' element={<LineupBuilder/>}/>
         <Route path='/prediction' element={<PredictionsPage/>}/>
       </Routes>
